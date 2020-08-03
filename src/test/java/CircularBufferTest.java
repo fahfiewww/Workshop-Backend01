@@ -52,6 +52,13 @@ public class CircularBufferTest {
         assertEquals("C", cb.readData());
         assertEquals("D", cb.readData());
     }
+    @Test
+    public void start_new_circle_buffer_should_have_size_0() {
+        CircularBuffer cb = new CircularBuffer();
+        boolean result = cb.isFull();
+        assertFalse("Buffer is full", result);
+
+    }
 
 
 
