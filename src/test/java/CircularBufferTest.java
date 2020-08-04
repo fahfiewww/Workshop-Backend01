@@ -4,17 +4,22 @@ import static org.junit.Assert.*;
 
 public class CircularBufferTest {
 
+    CircularBuffer cb = new CircularBuffer(); // 1
+
+    @Test
+    public void create_new_buffer_with_size() {
+        cb = new CircularBuffer(5);
+    }
+
     @Test
     public void create_new_buffer_should_empty() {
-        CircularBuffer cb = new CircularBuffer();
         boolean result = cb.isEmpty();
         assertTrue("Buffer ไม่ว่างนะ", result);
     }
 
     @Test
     public void create_new_buffer_with_default_size_should_10() {
-        CircularBuffer cb = new CircularBuffer();
-        for(int i=0; i< 10; i++) {
+        for(int i=0; i< 10; i++) { // 2
             cb.writeData("A" + i);
         }
         boolean result = cb.isFull();
@@ -23,41 +28,11 @@ public class CircularBufferTest {
 
     @Test
     public void write_A_B_to_buffer_should_read_A_B_from_buffer() {
-        CircularBuffer cb = new CircularBuffer();
         cb.writeData("A");
         cb.writeData("B");
-        assertEquals("A", cb.readData());
-        assertEquals("B", cb.readData());
-    }
 
-    @Test
-    public void write_A_B_C_to_buffer_should_read_A_B_C_from_buffer() {
-        CircularBuffer cb = new CircularBuffer();
-        cb.writeData("A");
-        cb.writeData("B");
-        cb.writeData("C");
         assertEquals("A", cb.readData());
         assertEquals("B", cb.readData());
-        assertEquals("C", cb.readData());
-    }
-    @Test
-    public void write_A_B_C_D_to_buffer_should_read_A_B_C_D_from_buffer() {
-        CircularBuffer cb = new CircularBuffer();
-        cb.writeData("A");
-        cb.writeData("B");
-        cb.writeData("C");
-        cb.writeData("D");
-        assertEquals("A", cb.readData());
-        assertEquals("B", cb.readData());
-        assertEquals("C", cb.readData());
-        assertEquals("D", cb.readData());
-    }
-    @Test
-    public void start_new_circle_buffer_should_have_size_0() {
-        CircularBuffer cb = new CircularBuffer();
-        boolean result = cb.isFull();
-        assertFalse("Buffer is full", result);
-
     }
 
 
