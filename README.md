@@ -17,7 +17,8 @@ write pointer = 0
 
 ## List of test cases
 TC01 => sayHi_with_pui_should_return_Hello_Pui 
-TC02=>write_A_B_C_D_to_buffer_should_read_A_B_C_D_from_buffer TC03 => start_new_circle_buffer_should_have_size_0
+TC02=>write_A_B_C_D_to_buffer_should_read_A_B_C_D_from_buffer 
+TC03 => start_new_circle_buffer_should_have_size_0
 
 
 ## :star2:Refactor case
